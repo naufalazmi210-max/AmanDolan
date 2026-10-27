@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmanDolanan — Jelajah Malang Raya</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Library peta Leaflet -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">AD</span>
+      <span>Aman<span class="accent">Dolanan</span></span>
+    </a>
+
+    <nav>
+      <a href="#jelajah">Jelajah</a>
+      <a href="#tempat">Tempat</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+
+    <button class="btn btn-primary" id="openAdd">
+      + Tambah Tempat
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">JELAJAH MALANG RAYA</span>
+
+        <h1>Keluar sebentar,<br>
+          <span>temukan cerita.</span>
+        </h1>
+
+        <p>
+          Temukan taman, lapangan olahraga, ruang baca,
+          dan tempat berkegiatan yang seru bersama teman.
+          Nggak harus mahal untuk punya pengalaman berharga.
+        </p>
+
+        <a href="#jelajah" class="btn btn-dark">
+          Mulai Jelajah ↘
+        </a>
+
+        <div class="hero-note">
+          🌿 Cari tempat positif di sekitar kamu
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="sun"></div>
+        <div class="hill hill-back"></div>
+        <div class="hill hill-front"></div>
+        <div class="tree tree-one">🌳</div>
+        <div class="tree tree-two">🌲</div>
+        <div class="hero-label">
+          <span>☀️</span>
+          <div>
+            <strong>Waktunya keluar!</strong>
+            <small>Gerak, ketemu, eksplor.</small>
+          </div>
+        </div>
+        <div class="floating-tag">🧃 Ramah kantong</div>
+      </div>
+    </section>
+
+    <section class="search-section" id="jelajah">
+      <span class="eyebrow">JELAJAHI SEKITARMU</span>
+      <h2>Ke mana hari ini?</h2>
+      <p class="muted">Temukan tempat sesuai kebutuhanmu.</p>
+
+      <div class="search-row">
+        <input id="searchInput" type="search"
+          placeholder="Cari taman, lapangan, perpustakaan...">
+
+        <select id="areaFilter">
+          <option value="all">Semua wilayah</option>
+          <option value="Kota Malang">Kota Malang</option>
+          <option value="Kabupaten Malang">Kabupaten Malang</option>
+          <option value="Kota Batu">Kota Batu</option>
+        </select>
+      </div>
+
+      <div class="categories" id="categoryFilters">
+        <button class="chip active" data-category="all">
+          ✨ Semua
+        </button>
+        <button class="chip" data-category="Taman">
+          🌳 Taman
+        </button>
+        <button class="chip" data-category="Olahraga">
+          🏸 Olahraga
+        </button>
+        <button class="chip" data-category="Belajar">
+          📚 Belajar
+        </button>
+        <button class="chip" data-category="Komunitas">
+          🎨 Komunitas
+        </button>
+      </div>
+    </section>
+
+    <section class="explore" id="tempat">
+      <div class="map-column">
+        <div class="section-head">
+          <div>
+            <h3>Peta tempat pilihan</h3>
+            <p>📍 Jelajahi titik di Malang Raya</p>
+          </div>
+          <button class="text-btn" id="resetMap">
+            Reset ↗
+          </button>
+        </div>
+
+        <div id="map"></div>
+
+        <p class="disclaimer">
+          Lokasi dan informasi merupakan data awal demonstrasi.
+          Periksa alamat, fasilitas, dan jam operasional sebelum berkunjung.
+        </p>
+      </div>
+
+      <div class="places-column">
+        <div class="section-head">
+          <div>
+            <h3>Tempat buat kamu</h3>
+            <p id="resultCount">Memuat tempat...</p>
+          </div>
+
+          <button id="favoritesToggle" class="favorite-toggle">
+            ♡ Favorit <span id="favoriteCount">0</span>
+          </button>
+        </div>
+
+        <div id="placesList" class="places-list"></div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <span>🧭</span>
+          <h3>Tempat tidak ditemukan</h3>
+          <p>Coba kata kunci atau kategori lain.</p>
+          <button class="btn btn-primary" id="clearFilters">
+            Reset pencarian
+          </button>
+        </div>
+
+        <div class="contribute">
+          <div>
+            <strong>Punya rekomendasi tempat?</strong>
+            <p>Bagikan tempat favoritmu kepada teman lain.</p>
+          </div>
+          <button id="openAdd2" aria-label="Tambah tempat">+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="activity" id="tentang">
+      <div>
+        <span class="eyebrow">NGGAK HARUS MAHAL</span>
+        <h2>Ide kecil buat<br>hari yang lebih seru.</h2>
+        <p class="muted">
+          Waktu berkualitas tidak harus selalu di tempat mahal.
+          Mulai dari aktivitas sederhana di sekitar kamu.
+        </p>
+      </div>
+
+      <div class="activity-grid">
+        <article class="activity-card green-card">
+          <span>🌿</span>
+          <h3>Recharge di taman</h3>
+          <p>Jalan santai dan ngobrol bersama teman.</p>
+        </article>
+
+        <article class="activity-card yellow-card">
+          <span>🏸</span>
+          <h3>Gerak bareng</h3>
+          <p>Ajak teman olahraga atau latihan skill.</p>
+        </article>
+
+        <article class="activity-card purple-card">
+          <span>📚</span>
+          <h3>Belajar bareng</h3>
+          <p>Cari ruang baca untuk menyelesaikan tugas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner">
+      <div>
+        <span class="eyebrow">DARI KITA, UNTUK KITA</span>
+        <h2>Tempat bagus layak dibagikan.</h2>
+        <p>Bantu teman-teman menemukan ruang positif di Malang Raya.</p>
+      </div>
+
+      <button class="btn btn-dark" id="openAdd3">
+        Bagikan Rekomendasi ↗
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <strong>AmanDolanan</strong>
+    <p>Prototipe komunitas, bukan layanan resmi pemerintah.</p>
+    <span>© <span id="year"></span> AmanDolanan</span>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <!-- Formulir tambah tempat -->
+  <dialog id="addModal">
+    <form id="addPlaceForm">
+      <div class="modal-head">
+        <h2>Tambah rekomendasi</h2>
+        <button type="button" id="closeModal" class="close-btn">×</button>
+      </div>
+
+      <p class="muted">
+        Tempat baru akan tersimpan di browser ini.
+      </p>
+
+      <label>
+        Nama tempat
+        <input name="name" required maxlength="70"
+          placeholder="Contoh: Taman dekat sekolah">
+      </label>
+
+      <label>
+        Kategori
+        <select name="category" required>
+          <option value="Taman">Taman</option>
+          <option value="Olahraga">Olahraga</option>
+          <option value="Belajar">Belajar</option>
+          <option value="Komunitas">Komunitas</option>
+        </select>
+      </label>
+
+      <label>
+        Wilayah
+        <select name="area" required>
+          <option>Kota Malang</option>
+          <option>Kabupaten Malang</option>
+          <option>Kota Batu</option>
+        </select>
+      </label>
+
+      <label>
+        Alamat atau area
+        <input name="address" required maxlength="120"
+          placeholder="Nama jalan atau area umum">
+      </label>
+
+      <label>
+        Biaya
+        <input name="price" maxlength="40"
+          placeholder="Gratis / mulai Rp10.000">
+      </label>
+
+      <label>
+        Aktivitas
+        <input name="activity" maxlength="70"
+          placeholder="Ngobrol, membaca, olahraga">
+      </label>
+
+      <label>
+        Catatan
+        <textarea name="description" rows="3" maxlength="220"
+          placeholder="Informasi fasilitas atau tips berkunjung"></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-light" id="cancelModal">
+          Batal
+        </button>
+        <button type="submit" class="btn btn-primary">
+          Simpan tempat
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
