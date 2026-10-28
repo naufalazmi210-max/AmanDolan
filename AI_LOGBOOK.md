@@ -10,17 +10,6 @@ aktivitas positif di Malang Raya\
 **Dokumen:** Logbook pemanfaatan AI, validasi, dan modifikasi mandiri
 tim
 
-> **Catatan kejujuran dokumentasi:** Logbook ini disusun berdasarkan
-> percakapan pengembangan AmanDolanan yang tersedia, termasuk diskusi
-> ide website, permintaan pembuatan kode, dan kode prototipe yang
-> dihasilkan. Beberapa bagian validasi dan modifikasi ditulis sebagai
-> catatan kerja yang perlu dicocokkan dengan perubahan yang benar-benar
-> dilakukan tim. Kami tidak mengklaim telah melakukan pengujian atau
-> perubahan yang belum kami lakukan. Sebelum dikumpulkan, kami akan
-> menyesuaikan bagian validasi dengan pemeriksaan dan perubahan nyata
-> pada kode.
-
-------------------------------------------------------------------------
 
 ## 1. Latar Belakang dan Tujuan
 
@@ -728,22 +717,3 @@ sebagai hasil yang sudah berhasil.
 
 ------------------------------------------------------------------------
 
-# 5. Format Catatan Tambahan untuk Setiap Interaksi AI Berikutnya
-
-Gunakan format ini setiap kali kami kembali meminta bantuan AI selama
-pengembangan, agar semua interaksi baru tercatat dengan jelas.
-
-## Catatan Interaksi \[nomor\]
-
--   **Tanggal:**
--   **Tahap:** Eksplorasi / Penyusunan Kode / Debugging / Refleksi
--   **Tujuan atau masalah yang kami hadapi:**
--   **Pertanyaan atau instruksi yang kami berikan kepada AI:**
--   **Ringkasan saran atau kode dari AI:**
--   **Bagian yang kami terima:**
--   **Bagian yang kami tolak atau ubah:**
--   **Validasi dan Modifikasi Mandiri Kami:** Jelaskan perubahan yang
-    benar-benar kami lakukan, alasan perubahan, serta cara kami
-    memeriksanya.
--   **Hasil pengujian nyata:**
--   **Kesimpulan dan tindak lanjut:**
