@@ -681,11 +681,11 @@ isi sesuai hasil nyata.
                                       tersimpan di       
                                       browser.           
 
-  ##14                Dokumentasi       Menjelaskan fitur, Perlu
+  14                Dokumentasi       Menjelaskan fitur, Perlu
                                       teknologi, cara    diselesaikan
                                       menjalankan, dan   
                                       batasan website di 
-                                      README.##            
+                                      README. 
   ------------------------------------------------------------------------
 
 **Penting:** Kami akan mengganti status "perlu diuji" dengan "berhasil",
