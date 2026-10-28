@@ -38,6 +38,8 @@ OpenStreetMap| Menyediakan peta dasar dan data atribusi peta.
 Google Fonts| Menggunakan font DM Sans dan Plus Jakarta Sans.
 Web Storage API ("localStorage")| Menyimpan data tempat dan favorit secara lokal di browser.
 Google Maps| Membuka pencarian lokasi tempat dari website.
+juga menggunakan aplikasi chatGPT untuk membantu mengembangkan website
+
 
 Website menggunakan HTML, CSS, dan JavaScript tanpa framework frontend utama. Leaflet dimuat melalui CDN, sehingga koneksi internet diperlukan untuk memuat pustaka dan peta.
 
