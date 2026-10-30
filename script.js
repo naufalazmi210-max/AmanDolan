@@ -6,7 +6,7 @@
 
 // Data contoh tempat di Malang Raya.
 // Periksa kembali alamat, fasilitas, dan operasional
-// sebelum mengunjungi tempat yang tercantum.
+// sebelum mengunjungi tempat yang tercantum. 
 
 const initialPlaces = [
   {
